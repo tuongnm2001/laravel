@@ -6,6 +6,7 @@
         // public function index(){
         //     return view('index');
         // }
+        
 
         public function about(){
             $name = ['John', 'Michael', 'David','Bobby', 'Stimi'];

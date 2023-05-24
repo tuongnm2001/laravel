@@ -4,50 +4,37 @@
     <div class="m-auto w4/8 py-24">
         <div class="text-center">
             <h1 class="text-5xl uppercase bold">
-                Create Car
+                UPDATE Car
             </h1>
         </div>
 
         <div class="flex justify-center pt-20">
-            <form action="/cars" method="POST" enctype="multipart/form-data">
+            <form action="/cars/{{ $car->id }}" method="POST">
                 @csrf
+                @method('PUT')
                 <div class="block">
-
-                    <input 
-                        type="file"
-                        name="image"
-                    />
-
                     <input 
                         type="text"
                         name="name"
-                        placeholder="brand name..."
+                        value="{{ $car->name }}"
                     />
 
                      <input 
                         type="text"
                         name="founder"
                         placeholder="founder..."
+                        value="{{ $car->founder }}"
                     />
 
                      <input 
                         type="text"
                         name="description"
-                        placeholder="description..."
+                        value="{{ $car->description }}"
                     />
 
                     <button type="submit">Create</button>
                 </div>
             </form>
-            @if ($errors->any())
-                <div class="w-4/8 m-auto text-center">
-                    @foreach ($errors->all() as $error)
-                        <li class="text-red-500 list-none">
-                            {{ $error }}
-                        </li>
-                    @endforeach
-                </div>
-            @endif
         </div>
     </div>
 @endsection
